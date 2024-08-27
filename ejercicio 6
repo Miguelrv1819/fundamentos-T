@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{
+    int hora, minuto, segundo; 
+    do{
+       cout<<"Ingrese la hora: ";
+       cin>>hora; 
+    } while(hora>23||hora<0);   
+     do{
+        cout<<"Ingrese los minutos: ";
+    cin>>minuto;
+     } while (minuto>59||minuto<0);
+     do{
+        cout<<"Ingrese los segundos: ";
+        cin>>segundo;
+     }while(segundo>59||segundo<0);
+     cout<<"La hora es: "<<hora<<","<<minuto<<","<<segundo<<endl;
+
+    return 0;
+}
