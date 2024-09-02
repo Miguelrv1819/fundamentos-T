@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+void menu()
+{
+    cout<<" ITEM       CANTIDAD   TOTAL PARCIAL"<<endl;
+    cout<<" ----"<<endl;
+    cout<<"1. Hamburguesas   (3Bs)"<<endl;
+    cout<<"2. Hamburguesas con queso   (5Bs)"<<endl;
+    cout<<"3. Papas fritas   (2Bs)"<<endl;
+    cout<<"4. soda   (2.5Bs)"<<endl;
+    cout<<"5. Totalizar"<<endl;
+}
+int main (){
+    int opcion=0;float nh, nhq, npf, ns, tpf, th, Total, thq;
+    while (opcion!=5){
+        menu();
+        cout<<"Digite nro. producto o 5 para totalizar:(1-4,5)";
+        cin>>opcion;
+        if (opcion == 1){
+            cout<<"cuantas hamburguesas ?:";cin>>nh;
+            th=nh*3;
+        }
+        else{
+            if (opcion==2){
+                cout<<"cuantas hamburguesas con queso?:";cin>>nhq;
+                th= nhq*5;
+            }
+            else{
+                if (opcion == 3){
+                    cout<<"cuantas papas fritas?:";cin>>npf;
+                    tpf=npf*2;
+                }
+                else{
+                    if(opcion==4){
+                        cout<<"cuantas sodas?:";cin>>ns;
+                        tpf=ns*2.5;
+                    }
+                    else{
+                        cout<<"TOTALES"<<endl;
+                        Total=th+thq+tpf;
+                        cout<<"total:"<<Total<<endl;
+                    }
+            }
+    }
+        }
+    }   
+    return 0;
+}
