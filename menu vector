@@ -1,0 +1,84 @@
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargar(int vec[], int n);
+void mostrar(int vec[], int n);
+void unir(int v1[], int n, int v2[], int m, int vec[], int& tam);
+void burbuja(int vec[], int m);
+int main() {
+	int tam, n, m, A[MAX], B[MAX], C[MAX], opcion;
+	do {
+		cout << endl; 
+		cout << "1.- cargar" << endl; 
+		cout << "2.- mostrar" << endl; 
+		cout << "3.- unir" << endl; 
+		cout << "4.- burbuja" << endl; 
+		cout << "Elige una opcion: "; 
+		switch (opcion) {
+		case 1:
+			do {
+				cout << "Ingresar el tamaño del primer vector:";
+				cin >> n;
+
+
+	} while ((n <= 0) || (n > MAX));
+	cargar(A, n); 
+	break; 
+		case 2:
+			do {
+				cout << "Ingresar el tamaño del segundo vector:";
+				cin >> m;
+
+
+			} while ((m <= 0) || (m > MAX));
+			cargar(B, m);
+			break;
+		case 3:
+			if (n>0 && m>0){
+                unir(A, n, B, m, C, tam);
+                cout << "Vectores unidos ." << endl;
+            }
+            else {
+                cout << " debe cargar ambos vectores." << endl;
+            }
+            break;
+
+        case 4:
+            if (tam > 0) {
+                burbuja(C, tam);
+                cout << "Vector ordenado ." << endl;
+            }
+            else {
+                cout << " debe unir los vectores." << endl;
+            }
+            break;
+
+        case 5:
+            if (tam > 0) {
+                mostrar(C, tam);
+            }
+            else {
+                cout << " debe unir los vectores." << endl;
+            }
+            break;
+        case 6:
+            if (tam > 0) {
+                mostrar(C, tam);
+            }
+            else {
+                cout << " debe unir los vectores." << endl;
+            }
+            break;
+        case 0:
+            cout << "FIN";
+            break;
+
+        default:
+            cout << "Opción incorrecta." << endl;
+        }
+
+    } while (opcion != 6);
+}
