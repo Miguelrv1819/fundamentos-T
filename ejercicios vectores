@@ -1,0 +1,208 @@
+ejercicio 14 
+#include <iostream>
+using namespace std;
+
+void ordenarAscendente(float arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                float temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Ingrese el número de elementos: ";
+    cin >> n;
+
+    float arr[100];
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese el elemento " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    ordenarAscendente(arr, n);
+
+    cout << "Lista ordenada en orden ascendente:\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+ejecicio 15
+#include <iostream>
+#include <string>
+using namespace std;
+
+void ordenarDescendente(float notas[], string alumnos[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (notas[i] < notas[j]) {
+                float tempNota = notas[i];
+                notas[i] = notas[j];
+                notas[j] = tempNota;
+
+                string tempAlumno = alumnos[i];
+                alumnos[i] = alumnos[j];
+                alumnos[j] = tempAlumno;
+            }
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Ingrese el número de alumnos: ";
+    cin >> n;
+
+    string alumnos[100];
+    float notas[100];
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese el nombre del alumno " << i + 1 << ": ";
+        cin >> alumnos[i];
+        cout << "Ingrese la nota del alumno " << i + 1 << ": ";
+        cin >> notas[i];
+    }
+
+    ordenarDescendente(notas, alumnos, n);
+
+    cout << "Las tres mejores notas son:\n";
+    for (int i = 0; i < 3 && i < n; i++) {
+        cout << alumnos[i] << " con nota " << notas[i] << endl;
+    }
+
+    return 0;
+}
+ejercicio 16
+#include <iostream>
+#include <string>
+using namespace std;
+
+void ingresarAlumno(string alumnos[], float notas[], int &n) {
+    cout << "Ingrese el nombre del alumno: ";
+    cin >> alumnos[n];
+    cout << "Ingrese la nota del alumno: ";
+    cin >> notas[n];
+    n++;
+}
+
+void listarAlumnos(string alumnos[], float notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << alumnos[i] << " - Nota: " << notas[i] << endl;
+    }
+}
+
+void ordenarAlfabeticamente(string alumnos[], float notas[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (alumnos[i] > alumnos[j]) {
+                string tempAlumno = alumnos[i];
+                alumnos[i] = alumnos[j];
+                alumnos[j] = tempAlumno;
+
+                float tempNota = notas[i];
+                notas[i] = notas[j];
+                notas[j] = tempNota;
+            }
+        }
+    }
+}
+
+void mostrarMejorNota(string alumnos[], float notas[], int n) {
+    int indiceMejor = 0;
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > notas[indiceMejor]) {
+            indiceMejor = i;
+        }
+    }
+    cout << "Mejor nota: " << alumnos[indiceMejor] << " - " << notas[indiceMejor] << endl;
+}
+
+void mostrarPromedioNotas(float notas[], int n) {
+    float suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+    cout << "Promedio de notas: " << suma / n << endl;
+}
+
+int main() {
+    int n = 0;
+    string alumnos[100];
+    float notas[100];
+    int opcion;
+
+    do {
+        cout << "\nMenú:\n";
+        cout << "1) Ingresar alumno y su nota\n";
+        cout << "2) Listar alumnos\n";
+        cout << "3) Ordenar alfabéticamente\n";
+        cout << "4) Mostrar mejor nota\n";
+        cout << "5) Mostrar promedio de notas\n";
+        cout << "0) Salir\n";
+        cout << "Ingrese una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                ingresarAlumno(alumnos, notas, n);
+                break;
+            case 2:
+                listarAlumnos(alumnos, notas, n);
+                break;
+            case 3:
+                ordenarAlfabeticamente(alumnos, notas, n);
+                break;
+            case 4:
+                mostrarMejorNota(alumnos, notas, n);
+                break;
+            case 5:
+                mostrarPromedioNotas(notas, n);
+                break;
+            case 0:
+                cout << "Saliendo...\n";
+                break;
+            default:
+                cout << "Opción no válida.\n";
+                break;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
+ejercicio 17
+#include <iostream>
+using namespace std;
+
+void generarFibonacci(int fib[], int n) {
+    if (n > 0) fib[0] = 0;
+    if (n > 1) fib[1] = 1;
+
+    for (int i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+}
+
+int main() {
+    int n;
+    cout << "Ingrese la cantidad de términos de Fibonacci a generar: ";
+    cin >> n;
+
+    int fib[100];
+    generarFibonacci(fib, n);
+
+    cout << "Serie de Fibonacci:\n";
+    for (int i = 0; i < n; i++) {
+        cout << fib[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
