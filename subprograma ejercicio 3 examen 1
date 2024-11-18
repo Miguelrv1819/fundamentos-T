@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std; 
+float pf (float c, float m) {
+    float p; 
+    p = c * (1 + m / 100); 
+    return p; 
+
+}
+
+int main()
+{
+    float costo, margen, precio_final; 
+    cout << "Ingrese el costo del producto: "; 
+    cin >> costo;
+    cout << "Ingrese el margen: "; 
+    cin >> margen; 
+    precio_final = pf(costo, margen); 
+    cout << "El precio final del producto es: " << precio_final << endl; 
+}
